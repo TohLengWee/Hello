@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Speech.Synthesis;
 
 namespace Hello
 {
@@ -6,7 +6,13 @@ namespace Hello
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+            synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
+            synth.Speak("Hello, How are you today ?");
+
+            GradeBook book = new GradeBook();
+            book.AddGrade(91);
+            book.AddGrade(89.5f);
         }
     }
 }
