@@ -29,7 +29,7 @@ namespace Hello
                             ExistingName = _name,
                             NewName = value
                         };
-                        NameChanged(this, args);
+                        NameChanged(this, args); 
                     }
 
                     _name = value;
