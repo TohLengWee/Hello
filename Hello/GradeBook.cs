@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Hello
 {
@@ -39,6 +40,18 @@ namespace Hello
 
         public event NameChangedDeletegator NameChanged;
 
-        public List<float> Grades { get; } = new List<float>();
+        private List<float> Grades { get; } = new List<float>();
+
+        public GradeBookStatistics ComputeGradeBookStatistics()
+        {
+            GradeBookStatistics statistics = new GradeBookStatistics
+            {
+                AverageGrade = Grades.Average(),
+                HighestGrade = Grades.Max(),
+                LowestGrade = Grades.Min()
+            };
+
+            return statistics;            
+        }
     }
 }

@@ -19,6 +19,23 @@ namespace Hello
 
             book.AddGrade(91);
             book.AddGrade(89.5f);
+
+            GradeBookStatistics statistics = book.ComputeGradeBookStatistics();
+
+            WriteMessage("Highest", statistics.HighestGrade);
+            WriteMessage("Lowest", statistics.LowestGrade);
+            WriteMessage("Average", statistics.AverageGrade);
+            WriteMessage("Letter Grade", statistics.LetterGrade);
+        }
+
+        private static void WriteMessage(string message, char grade)
+        {
+            Console.WriteLine($"{message}: {grade}");
+        }
+
+        private static void WriteMessage(string message, float grade)
+        {
+            Console.WriteLine($"{message}: {grade:F2}");
         }
 
         private static void OnNameChanged(object sender, NameChangedEventArgs args)
