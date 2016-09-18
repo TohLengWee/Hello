@@ -1,4 +1,4 @@
 ﻿namespace Hello
 {
-    delegate void NameChangedDeletegator(object sender, NameChangedEventArgs args);
+    public delegate void NameChangedDeletegator(object sender, NameChangedEventArgs args);
 }

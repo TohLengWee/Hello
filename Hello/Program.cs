@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Speech.Synthesis;
 
 namespace Hello
@@ -11,7 +12,7 @@ namespace Hello
             //synth.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Teen);
             //synth.Speak("How are you today?");
 
-            GradeBook book = new GradeBook();
+            GradeTracker book = new ThrowAwayGradeBook();
             book.NameChanged += OnNameChanged;
 
             book.Name = "Harry Potter";
@@ -19,6 +20,12 @@ namespace Hello
 
             book.AddGrade(91);
             book.AddGrade(89.5f);
+            book.AddGrade(77.7f);
+
+            using (StreamWriter output = File.CreateText("grade.txt"))
+            {
+                book.WriteGrade(output);
+            }                        
 
             GradeBookStatistics statistics = book.ComputeGradeBookStatistics();
 
